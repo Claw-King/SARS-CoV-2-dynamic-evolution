@@ -19,8 +19,9 @@ jobs:
         
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        python -m pip install --upgrade pip setuptools wheel
+        pip install Cython numpy
+        if [ -f requirements.txt ]; then pip install --no-build-isolation -r requirements.txt; fi
         pip install pytest flake8 nbconvert
 
     - name: Lint with flake8

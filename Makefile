@@ -16,7 +16,8 @@ help:
 	@echo "  clean      - Remove cache and build files"
 
 install:
-	$(PIP) install -r requirements.txt
+	$(PIP) install --upgrade pip setuptools wheel Cython numpy
+	$(PIP) install --no-build-isolation -r requirements.txt
 	$(PIP) install pytest flake8 nbconvert
 
 test:
